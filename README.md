@@ -155,16 +155,40 @@ Check the `examples/` directory for more detailed examples:
 
 ## Development
 
-To contribute or modify:
-1. Clone the repository
-2. Install development dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run tests:
-   ```bash
-   pytest
-   ```
+### Building the Package
+To build a new distribution of the package:
+```bash
+# Clean old builds
+rm -rf dist/ build/ *.egg-info
+
+# Build new distribution files
+python setup.py sdist bdist_wheel
+```
+
+### Installation from Source
+For development installation:
+```bash
+# Clone the repository
+git clone https://github.com/OddballInnovator/AIFAST.git
+cd AIFAST
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Unix/MacOS
+# or
+.\venv\Scripts\activate  # On Windows
+
+# Install development dependencies
+pip install -r requirements.txt
+
+# Install package in editable mode
+pip install -e .
+```
+
+### Running Tests
+```bash
+pytest
+```
 
 ## License
 
